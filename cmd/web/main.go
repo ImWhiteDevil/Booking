@@ -8,11 +8,11 @@ import (
 	"os"
 	"time"
 
-	"github.com/IamWhiteDevil/bookings-app/internal/config"
-	"github.com/IamWhiteDevil/bookings-app/internal/handlers"
-	"github.com/IamWhiteDevil/bookings-app/internal/helpers"
-	"github.com/IamWhiteDevil/bookings-app/internal/models"
-	"github.com/IamWhiteDevil/bookings-app/internal/render"
+	"github.com/ImWhiteDevil/bookings-app/internal/config"
+	"github.com/ImWhiteDevil/bookings-app/internal/handlers"
+	"github.com/ImWhiteDevil/bookings-app/internal/helpers"
+	"github.com/ImWhiteDevil/bookings-app/internal/models"
+	"github.com/ImWhiteDevil/bookings-app/internal/render"
 	"github.com/alexedwards/scs/v2"
 )
 

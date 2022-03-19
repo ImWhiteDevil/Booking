@@ -10,9 +10,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/IamWhiteDevil/bookings-app/internal/config"
-	"github.com/IamWhiteDevil/bookings-app/internal/models"
-	"github.com/IamWhiteDevil/bookings-app/internal/render"
+	"github.com/ImWhiteDevil/bookings-app/internal/config"
+	"github.com/ImWhiteDevil/bookings-app/internal/models"
+	"github.com/ImWhiteDevil/bookings-app/internal/render"
 	"github.com/alexedwards/scs/v2"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
