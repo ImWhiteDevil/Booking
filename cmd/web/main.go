@@ -23,7 +23,6 @@ var session *scs.SessionManager
 var infoLog *log.Logger
 var errorLog *log.Logger
 
-// main is the main function
 func main() {
 	err := run()
 	if err != nil {
@@ -44,10 +43,9 @@ func main() {
 }
 
 func run() error {
-	// what am I going to put in the session
+
 	gob.Register(models.Reservation{})
 
-	// change this to true when in production
 	app.InProduction = false
 
 	infoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
@@ -56,7 +54,6 @@ func run() error {
 	errorLog = log.New(os.Stdout, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
 	app.ErrorLog = errorLog
 
-	// set up the session
 	session = scs.New()
 	session.Lifetime = 24 * time.Hour
 	session.Cookie.Persist = true

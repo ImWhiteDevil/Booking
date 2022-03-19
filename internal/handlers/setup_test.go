@@ -25,10 +25,9 @@ var pathToTemplates = "./../../templates"
 var functions = template.FuncMap{}
 
 func getRoutes() http.Handler {
-	// what am I going to put in the session
+
 	gob.Register(models.Reservation{})
 
-	// change this to true when in production
 	app.InProduction = false
 
 	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
@@ -37,7 +36,6 @@ func getRoutes() http.Handler {
 	errorLog := log.New(os.Stdout, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
 	app.ErrorLog = errorLog
 
-	// set up the session
 	session = scs.New()
 	session.Lifetime = 24 * time.Hour
 	session.Cookie.Persist = true
@@ -62,7 +60,7 @@ func getRoutes() http.Handler {
 	mux := chi.NewRouter()
 
 	mux.Use(middleware.Recoverer)
-	//mux.Use(NoSurf)
+
 	mux.Use(SessionLoad)
 
 	mux.Get("/", Repo.Home)
@@ -86,7 +84,6 @@ func getRoutes() http.Handler {
 	return mux
 }
 
-// NoSurf is the csrf protection middleware
 func NoSurf(next http.Handler) http.Handler {
 	csrfHandler := nosurf.New(next)
 
@@ -99,12 +96,10 @@ func NoSurf(next http.Handler) http.Handler {
 	return csrfHandler
 }
 
-// SessionLoad loads and saves session data for current request
 func SessionLoad(next http.Handler) http.Handler {
 	return session.LoadAndSave(next)
 }
 
-// CreateTestTemplateCache creates a template cache as a map
 func CreateTestTemplateCache() (map[string]*template.Template, error) {
 
 	myCache := map[string]*template.Template{}
