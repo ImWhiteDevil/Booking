@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/ImWhiteDevil/bookings-app/internal/config"
+	"github.com/ImWhiteDevil/Bookings/internal/config"
 	"github.com/go-chi/chi"
 )
 

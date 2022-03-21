@@ -8,11 +8,12 @@ import (
 	"os"
 	"time"
 
-	"github.com/ImWhiteDevil/bookings-app/internal/config"
-	"github.com/ImWhiteDevil/bookings-app/internal/handlers"
-	"github.com/ImWhiteDevil/bookings-app/internal/helpers"
-	"github.com/ImWhiteDevil/bookings-app/internal/models"
-	"github.com/ImWhiteDevil/bookings-app/internal/render"
+	"github.com/ImWhiteDevil/Bookings/internal/config"
+	"github.com/ImWhiteDevil/Bookings/internal/drivers"
+	"github.com/ImWhiteDevil/Bookings/internal/handlers"
+	"github.com/ImWhiteDevil/Bookings/internal/helpers"
+	"github.com/ImWhiteDevil/Bookings/internal/models"
+	"github.com/ImWhiteDevil/Bookings/internal/render"
 	"github.com/alexedwards/scs/v2"
 )
 
@@ -24,10 +25,11 @@ var infoLog *log.Logger
 var errorLog *log.Logger
 
 func main() {
-	err := run()
+	db, err := run()
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer db.SQL.Close()
 
 	fmt.Println(fmt.Sprintf("Staring application on port %s", portNumber))
 
@@ -42,9 +44,12 @@ func main() {
 	}
 }
 
-func run() error {
+func run() (*drivers.DB, error) {
 
 	gob.Register(models.Reservation{})
+	gob.Register(models.User{})
+	gob.Register(models.Room{})
+	gob.Register(models.Restriction{})
 
 	app.InProduction = false
 
@@ -62,19 +67,26 @@ func run() error {
 
 	app.Session = session
 
+	log.Println("connecting to database...")
+	db, err := drivers.ConnectSQL("host=localhost port=5432 dbname=booking user=postgres password=unlock")
+	if err != nil {
+		log.Fatal("dying...")
+	}
+	log.Println("connected to database")
+
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
 		log.Fatal("cannot create template cache")
-		return err
+		return nil, err
 	}
 
 	app.TemplateCache = tc
 	app.UseCache = false
 
-	repo := handlers.NewRepo(&app)
+	repo := handlers.NewRepo(&app, db)
 	handlers.NewHandlers(repo)
-	render.NewTemplates(&app)
+	render.NewRenderer(&app)
 	helpers.NewHelpers(&app)
 
-	return nil
+	return db, nil
 }

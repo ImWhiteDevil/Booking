@@ -10,9 +10,10 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/ImWhiteDevil/bookings-app/internal/config"
-	"github.com/ImWhiteDevil/bookings-app/internal/models"
-	"github.com/ImWhiteDevil/bookings-app/internal/render"
+	"github.com/ImWhiteDevil/Bookings/internal/config"
+	"github.com/ImWhiteDevil/Bookings/internal/drivers"
+	"github.com/ImWhiteDevil/Bookings/internal/models"
+	"github.com/ImWhiteDevil/Bookings/internal/render"
 	"github.com/alexedwards/scs/v2"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
@@ -52,10 +53,10 @@ func getRoutes() http.Handler {
 	app.TemplateCache = tc
 	app.UseCache = true
 
-	repo := NewRepo(&app)
+	repo := NewRepo(&app, &drivers.DB{})
 	NewHandlers(repo)
 
-	render.NewTemplates(&app)
+	render.NewRenderer(&app)
 
 	mux := chi.NewRouter()
 
