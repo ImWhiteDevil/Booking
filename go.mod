@@ -9,6 +9,7 @@ require (
 )
 
 require (
+	github.com/ImWhiteDevil/Booking v0.0.0-20220321064626-cfc9feb7e53f // indirect
 	github.com/asaskevich/govalidator v0.0.0-20200907205600-7a23bdc65eef // indirect
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
 	github.com/jackc/pgconn v1.11.0 // indirect
