@@ -8,12 +8,12 @@ import (
 	"os"
 	"time"
 
-	"github.com/ImWhiteDevil/Bookings/internal/config"
-	"github.com/ImWhiteDevil/Bookings/internal/drivers"
-	"github.com/ImWhiteDevil/Bookings/internal/handlers"
-	"github.com/ImWhiteDevil/Bookings/internal/helpers"
-	"github.com/ImWhiteDevil/Bookings/internal/models"
-	"github.com/ImWhiteDevil/Bookings/internal/render"
+	"github.com/ImWhiteDevil/Booking/internal/config"
+	"github.com/ImWhiteDevil/Booking/internal/drivers"
+	"github.com/ImWhiteDevil/Booking/internal/handlers"
+	"github.com/ImWhiteDevil/Booking/internal/helpers"
+	"github.com/ImWhiteDevil/Booking/internal/models"
+	"github.com/ImWhiteDevil/Booking/internal/render"
 	"github.com/alexedwards/scs/v2"
 )
 

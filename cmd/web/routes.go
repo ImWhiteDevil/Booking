@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 
-	"github.com/ImWhiteDevil/Bookings/internal/config"
-	"github.com/ImWhiteDevil/Bookings/internal/handlers"
+	"github.com/ImWhiteDevil/Booking/internal/config"
+	"github.com/ImWhiteDevil/Booking/internal/handlers"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 )

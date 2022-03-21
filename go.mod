@@ -1,4 +1,4 @@
-module github.com/ImWhiteDevil/Bookings
+module github.com/ImWhiteDevil/Booking
 
 go 1.17
 

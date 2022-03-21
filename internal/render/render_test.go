@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/ImWhiteDevil/Bookings/internal/models"
+	"github.com/ImWhiteDevil/Booking/internal/models"
 )
 
 func TestAddDefaultData(t *testing.T) {

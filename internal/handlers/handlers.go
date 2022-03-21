@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/ImWhiteDevil/Bookings/internal/config"
-	"github.com/ImWhiteDevil/Bookings/internal/drivers"
-	"github.com/ImWhiteDevil/Bookings/internal/forms"
-	"github.com/ImWhiteDevil/Bookings/internal/helpers"
-	"github.com/ImWhiteDevil/Bookings/internal/models"
-	"github.com/ImWhiteDevil/Bookings/internal/render"
-	"github.com/ImWhiteDevil/Bookings/internal/repository"
-	"github.com/ImWhiteDevil/Bookings/internal/repository/dbrepo"
+	"github.com/ImWhiteDevil/Booking/internal/config"
+	"github.com/ImWhiteDevil/Booking/internal/drivers"
+	"github.com/ImWhiteDevil/Booking/internal/forms"
+	"github.com/ImWhiteDevil/Booking/internal/helpers"
+	"github.com/ImWhiteDevil/Booking/internal/models"
+	"github.com/ImWhiteDevil/Booking/internal/render"
+	"github.com/ImWhiteDevil/Booking/internal/repository"
+	"github.com/ImWhiteDevil/Booking/internal/repository/dbrepo"
 )
 
 var Repo *Repository

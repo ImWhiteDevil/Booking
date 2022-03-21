@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ImWhiteDevil/Bookings/internal/config"
-	"github.com/ImWhiteDevil/Bookings/internal/models"
+	"github.com/ImWhiteDevil/Booking/internal/config"
+	"github.com/ImWhiteDevil/Booking/internal/models"
 	"github.com/alexedwards/scs/v2"
 )
 
