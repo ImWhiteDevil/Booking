@@ -5,14 +5,11 @@ import "fmt"
 func main() {
 
 	name := "soham"
-
 	char := []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"}
-
 	num := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
 	// takes char,num,name as input argument
 	trimArray(char, num, name)
-
 }
 
 // trimArray takes argument and trim it then prints it.
